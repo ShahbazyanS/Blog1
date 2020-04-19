@@ -38,28 +38,41 @@ public class PostStorage implements PostStorageInt {
         throw new PostNotFoundException("the post with " + title + " title does not exist");
     }
 
-    public void searchPostByKeyword(String keyword){
+    public void searchPostByKeyword(String keyword) {
         for (int i = 0; i < size; i++) {
-            if (posts[i].getTitle().contains(keyword) || posts[i].getText().contains(keyword)){
+            if (posts[i].getTitle().contains(keyword) || posts[i].getText().contains(keyword)) {
                 System.out.println(posts[i]);
             }
         }
     }
 
-    public void printAllPost(){
+    public void printAllPost() {
         for (int i = 0; i < size; i++) {
             System.out.println(posts[i]);
         }
     }
 
-    public void printPostByCategory(String category){
+    public void printPostByCategory(String category) {
         for (int i = 0; i < size; i++) {
-            if (posts[i].getCategory().equals(category)){
+            if (posts[i].getCategory().equals(category)) {
                 System.out.println(posts[i]);
             }
         }
     }
-    public boolean isEmpty(){
+
+    public boolean isEmpty() {
         return size == 0;
+    }
+
+    public void deletePost(String title) {
+        for (int i = 0; i < size; i++) {
+            if (posts[i].getTitle().equals(title)) {
+                System.arraycopy(posts, i + 1, posts, i + 1 - 1, size - (i + 1));
+                size--;
+            } else {
+                System.out.println(String.format("post with %s does not exist", title));
+            }
+        }
+
     }
 }

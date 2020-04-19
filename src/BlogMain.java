@@ -1,4 +1,3 @@
-import exception.PostNotFoundException;
 import interfaces.Commands;
 import model.Post;
 import model.User;
@@ -119,6 +118,9 @@ public class BlogMain implements Commands {
                 case ADD_POST:
                     addPost();
                     break;
+                case DELETE_POST:
+                    deletePost();
+                    break;
                 default:
                     System.out.println("wrong comand please try again");
 
@@ -139,5 +141,10 @@ public class BlogMain implements Commands {
         post.setUser(currentUser);
         postStorage.add(post);
         System.out.println("thank you post was added");
+    }
+
+    private static void deletePost() {
+        System.out.println("please input post title for delete post");
+        postStorage.deletePost(scanner.nextLine());
     }
 }

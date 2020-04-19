@@ -10,10 +10,10 @@ public interface Commands {
 
 
     int LOGOUT = 0;
-    int ADD_POST =1;
+    int ADD_POST = 1;
+    int DELETE_POST = 2;
 
-
-    static void command(){
+    static void command() {
         System.out.println("please input " + EXIT + " for exit");
         System.out.println("please input " + LOGIN + " for login");
         System.out.println("please input " + REGISTER + " for register");
@@ -22,9 +22,10 @@ public interface Commands {
         System.out.println("please input " + ALL_POSTS + " for print all posts");
     }
 
-    static void commandUser(){
+    static void commandUser() {
         System.out.println("please input " + LOGOUT + " for logaut");
         System.out.println("please input " + ADD_POST + " for add post");
+        System.out.println("please input " + DELETE_POST + " for delete post");
     }
 
 
