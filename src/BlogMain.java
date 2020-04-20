@@ -1,3 +1,4 @@
+import exception.UserNotFoundException;
 import interfaces.Commands;
 import model.Post;
 import model.User;
@@ -75,12 +76,17 @@ public class BlogMain implements Commands {
         try {
             String str = scanner.nextLine();
             String[] strings = str.split(",");
-            currentUser = userStorage.getUserByEmailAndPassword(strings[0], strings[1]);
-            login();
-        } catch (ArrayIndexOutOfBoundsException e) {
-            e.getMessage();
+            if (strings.length == 2) {
+                currentUser = userStorage.getUserByEmailAndPassword(strings[0], strings[1]);
+                login();
+            } else {
+                System.out.println("please input valid email and password");
+            }
+        } catch (UserNotFoundException e) {
+            System.out.println(e.getMessage());
         }
     }
+
 
     private static void registerUser() {
         System.out.println("please input name, surname, email, password");

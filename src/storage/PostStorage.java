@@ -60,6 +60,7 @@ public class PostStorage implements PostStorageInt {
         }
     }
 
+
     public boolean isEmpty() {
         return size == 0;
     }

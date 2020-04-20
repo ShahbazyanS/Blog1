@@ -9,6 +9,7 @@ public class Post{
     private Date date;
     private User user;
 
+
     public Post(String title, String text, String category, Date date, User user) {
         this.title = title;
         this.text = text;
